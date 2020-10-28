@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/common_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_add_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="66dp"
+        android:text="账户"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <EditText
+        android:id="@+id/edt_add_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="account"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_account"
+        app:layout_constraintStart_toEndOf="@+id/tv_add_account"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_account" />
+
+    <TextView
+        android:id="@+id/tv_add_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="余额"
+        app:layout_constraintStart_toStartOf="@+id/tv_add_account"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_account" />
+
+    <EditText
+        android:id="@+id/edt_add_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="money"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_money"
+        app:layout_constraintStart_toEndOf="@+id/tv_add_money"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_money" />
+
+
+    <TextView
+        android:id="@+id/tv_add_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="备注"
+        app:layout_constraintStart_toStartOf="@+id/tv_add_money"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_money" />
+
+    <EditText
+        android:id="@+id/edt_add_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="des"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_add_des"
+        app:layout_constraintStart_toEndOf="@+id/tv_add_des"
+        app:layout_constraintTop_toTopOf="@+id/tv_add_des" />
+
+    <TextView
+        android:id="@+id/tv_add_add"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="200dp"
+        android:background="@color/_9577FB"
+        android:gravity="center"
+        android:text="添加"
+        android:textColor="@color/_FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
