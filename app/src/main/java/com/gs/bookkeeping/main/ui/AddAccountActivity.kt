@@ -72,6 +72,7 @@ class AddAccountActivity :BaseActivity() {
         }
 
         var acc = AccountBean()
+        acc.cId = name + System.currentTimeMillis()
         acc.name = name
         acc.num = num
         acc.numF = num.toFloat()

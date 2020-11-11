@@ -25,11 +25,12 @@ public class AccountBeanDao extends AbstractDao<AccountBean, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Name = new Property(1, String.class, "name", false, "NAME");
-        public final static Property Num = new Property(2, String.class, "num", false, "NUM");
-        public final static Property Date = new Property(3, String.class, "date", false, "DATE");
-        public final static Property NumF = new Property(4, Float.class, "numF", false, "NUM_F");
-        public final static Property Des = new Property(5, String.class, "des", false, "DES");
+        public final static Property CId = new Property(1, String.class, "cId", false, "C_ID");
+        public final static Property Name = new Property(2, String.class, "name", false, "NAME");
+        public final static Property Num = new Property(3, String.class, "num", false, "NUM");
+        public final static Property Date = new Property(4, String.class, "date", false, "DATE");
+        public final static Property NumF = new Property(5, Float.class, "numF", false, "NUM_F");
+        public final static Property Des = new Property(6, String.class, "des", false, "DES");
     }
 
 
@@ -46,11 +47,12 @@ public class AccountBeanDao extends AbstractDao<AccountBean, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"ACCOUNT_BEAN\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"NAME\" TEXT," + // 1: name
-                "\"NUM\" TEXT," + // 2: num
-                "\"DATE\" TEXT," + // 3: date
-                "\"NUM_F\" REAL," + // 4: numF
-                "\"DES\" TEXT);"); // 5: des
+                "\"C_ID\" TEXT," + // 1: cId
+                "\"NAME\" TEXT," + // 2: name
+                "\"NUM\" TEXT," + // 3: num
+                "\"DATE\" TEXT," + // 4: date
+                "\"NUM_F\" REAL," + // 5: numF
+                "\"DES\" TEXT);"); // 6: des
     }
 
     /** Drops the underlying database table. */
@@ -68,29 +70,34 @@ public class AccountBeanDao extends AbstractDao<AccountBean, Long> {
             stmt.bindLong(1, id);
         }
  
+        String cId = entity.getCId();
+        if (cId != null) {
+            stmt.bindString(2, cId);
+        }
+ 
         String name = entity.getName();
         if (name != null) {
-            stmt.bindString(2, name);
+            stmt.bindString(3, name);
         }
  
         String num = entity.getNum();
         if (num != null) {
-            stmt.bindString(3, num);
+            stmt.bindString(4, num);
         }
  
         String date = entity.getDate();
         if (date != null) {
-            stmt.bindString(4, date);
+            stmt.bindString(5, date);
         }
  
         Float numF = entity.getNumF();
         if (numF != null) {
-            stmt.bindDouble(5, numF);
+            stmt.bindDouble(6, numF);
         }
  
         String des = entity.getDes();
         if (des != null) {
-            stmt.bindString(6, des);
+            stmt.bindString(7, des);
         }
     }
 
@@ -103,29 +110,34 @@ public class AccountBeanDao extends AbstractDao<AccountBean, Long> {
             stmt.bindLong(1, id);
         }
  
+        String cId = entity.getCId();
+        if (cId != null) {
+            stmt.bindString(2, cId);
+        }
+ 
         String name = entity.getName();
         if (name != null) {
-            stmt.bindString(2, name);
+            stmt.bindString(3, name);
         }
  
         String num = entity.getNum();
         if (num != null) {
-            stmt.bindString(3, num);
+            stmt.bindString(4, num);
         }
  
         String date = entity.getDate();
         if (date != null) {
-            stmt.bindString(4, date);
+            stmt.bindString(5, date);
         }
  
         Float numF = entity.getNumF();
         if (numF != null) {
-            stmt.bindDouble(5, numF);
+            stmt.bindDouble(6, numF);
         }
  
         String des = entity.getDes();
         if (des != null) {
-            stmt.bindString(6, des);
+            stmt.bindString(7, des);
         }
     }
 
@@ -138,11 +150,12 @@ public class AccountBeanDao extends AbstractDao<AccountBean, Long> {
     public AccountBean readEntity(Cursor cursor, int offset) {
         AccountBean entity = new AccountBean( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // name
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // num
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // date
-            cursor.isNull(offset + 4) ? null : cursor.getFloat(offset + 4), // numF
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // des
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // cId
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // name
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // num
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // date
+            cursor.isNull(offset + 5) ? null : cursor.getFloat(offset + 5), // numF
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6) // des
         );
         return entity;
     }
@@ -150,11 +163,12 @@ public class AccountBeanDao extends AbstractDao<AccountBean, Long> {
     @Override
     public void readEntity(Cursor cursor, AccountBean entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
-        entity.setNum(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setDate(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setNumF(cursor.isNull(offset + 4) ? null : cursor.getFloat(offset + 4));
-        entity.setDes(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setCId(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setName(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setNum(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setDate(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setNumF(cursor.isNull(offset + 5) ? null : cursor.getFloat(offset + 5));
+        entity.setDes(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
      }
     
     @Override

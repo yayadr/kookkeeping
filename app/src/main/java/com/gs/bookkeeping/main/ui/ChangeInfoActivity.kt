@@ -2,13 +2,11 @@ package com.gs.bookkeeping.main.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.text.TextUtils
 import android.view.View
 import com.gs.bookkeeping.base.BaseActivity
 import com.gs.bookkeeping.databinding.ActivityAddAccountBinding
 import com.gs.bookkeeping.db.AccountBeanDao
-import com.gs.bookkeeping.db.DaoMaster
 import com.gs.bookkeeping.main.beans.AccountBean
 import com.gs.bookkeeping.utils.DateUtil
 import com.gs.bookkeeping.utils.DbUtil
@@ -89,7 +87,8 @@ class ChangeInfoActivity :BaseActivity() {
         if (TextUtils.isEmpty(des)){
             des = ""
         }
-
+        //修改数据（修改账号数据库）
+        accountBean.cId = accountBean.cId
         accountBean.name = name
         accountBean.num = num
         accountBean.numF = num.toFloat()
@@ -97,7 +96,9 @@ class ChangeInfoActivity :BaseActivity() {
         accountBean.des = des
         accountBeanDao.update(accountBean)
 
+        //增加数据（向所有记录数据库中增加）
         var acc_new = AccountBean()
+        acc_new.cId = accountBean.cId
         acc_new.name = name
         acc_new.num = num
         acc_new.numF = num.toFloat()
@@ -105,7 +106,7 @@ class ChangeInfoActivity :BaseActivity() {
         acc_new.des = des
         accountBeanDao_info.insertOrReplace(acc_new)
 
-
     }
+
 
 }

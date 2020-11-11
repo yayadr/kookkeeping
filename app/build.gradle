@@ -48,7 +48,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
-    implementation 'org.greenrobot:greendao:3.3.0' // add library
+    //数据库
+    implementation 'org.greenrobot:greendao:3.3.0'
+    //数据库更新工具
+    implementation 'io.github.yuweiguocn:GreenDaoUpgradeHelper:v2.2.1'
+
+
 
 
 }

@@ -45,6 +45,12 @@ class MainActivity : BaseActivity() {
         initData()
     }
 
+    fun initDb(){
+        var daoSession = DbUtil.initAccountDb(mContext)
+        accountBeanDao = daoSession.accountBeanDao
+
+    }
+
     fun initViews() {
         mainAdapter = MainAdapter(R.layout.item_main)
         mLayoutManager = LinearLayoutManager(mContext)
@@ -54,6 +60,7 @@ class MainActivity : BaseActivity() {
         mainAdapter.setOnItemClickListener(
             OnItemClickListener { adapter, view, position ->
                 var intent = Intent(mContext,AccountInfoActivity::class.java)
+                intent.putExtra("cId",mainAdapter.data.get(position).cId)
                 intent.putExtra("name",mainAdapter.data.get(position).name)
                 startActivityForResult(intent,CodeConstants.MAIN_CODE)
             }
@@ -77,16 +84,12 @@ class MainActivity : BaseActivity() {
         for (i in 0..(accountList.size-1)){
             numAll = numAll + accountList[i].num.toFloat()
         }
-
+        mainAdapter.showPercentage(numAll)
         mBinding.tvMainTopAllMoney.text = numAll.toInt().toString()
 
     }
 
-    fun initDb(){
-        var daoSession = DbUtil.initAccountDb(mContext)
-        accountBeanDao = daoSession.accountBeanDao
 
-    }
 
     override fun OnClickView(v: View?) {
         if (v == mBinding.fbMainAdd){

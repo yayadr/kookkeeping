@@ -30,6 +30,7 @@ class AccountInfoActivity :BaseActivity(){
     private lateinit var accountBeanDao: AccountBeanDao
     private lateinit var accountBeanDao_info: AccountBeanDao
     private lateinit var name:String
+    private lateinit var cId:String
     private var accountList:MutableList<AccountBean> = ArrayList()
     private var accountInfoList:MutableList<AccountBean> = ArrayList()
     private lateinit var accountBean: AccountBean
@@ -42,6 +43,7 @@ class AccountInfoActivity :BaseActivity(){
         setContentView(view)
         mContext = this
         name = intent.getStringExtra("name")
+        cId = intent.getStringExtra("cId")
         initViews()
         initDb()
     }
@@ -67,12 +69,12 @@ class AccountInfoActivity :BaseActivity(){
         accountBeanDao_info = daoSession_info.accountBeanDao
 
         accountList = accountBeanDao.queryBuilder()
-            .where(AccountBeanDao.Properties.Name.eq(name))
+            .where(AccountBeanDao.Properties.CId.eq(cId))
             .orderDesc(AccountBeanDao.Properties.Id)
             .list()
 
         accountInfoList = accountBeanDao_info.queryBuilder()
-            .where(AccountBeanDao.Properties.Name.eq(name))
+            .where(AccountBeanDao.Properties.CId.eq(cId))
             .orderDesc(AccountBeanDao.Properties.Id)
             .list()
 

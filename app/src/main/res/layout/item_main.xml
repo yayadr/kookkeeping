@@ -21,7 +21,7 @@
         android:id="@+id/tv_item_main_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="60dp"
         android:text="**"
         android:textColor="@color/_0D1726"
         android:textSize="20sp"
@@ -53,11 +53,31 @@
         android:id="@+id/tv_item_main_des"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginBottom="8dp"
         android:textColor="@color/_A2A3A4"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tv_item_main_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_item_main_name" />
+
+    <TextView
+        android:id="@+id/tv_item_main_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="0"
+        android:textColor="@color/_DE4F4C"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_main_date"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/money" />
 </androidx.constraintlayout.widget.ConstraintLayout>

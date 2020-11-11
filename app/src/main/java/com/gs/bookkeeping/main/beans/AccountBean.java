@@ -17,6 +17,7 @@ import org.greenrobot.greendao.annotation.Generated;
 public class AccountBean  {
     @Id(autoincrement = true)
     Long id;
+    private String cId;
     private String name;
     private String num;
     private String date;
@@ -25,10 +26,11 @@ public class AccountBean  {
 
 
 
-    @Generated(hash = 1307803743)
-    public AccountBean(Long id, String name, String num, String date, Float numF,
-            String des) {
+    @Generated(hash = 2092566078)
+    public AccountBean(Long id, String cId, String name, String num, String date,
+            Float numF, String des) {
         this.id = id;
+        this.cId = cId;
         this.name = name;
         this.num = num;
         this.date = date;
@@ -41,6 +43,13 @@ public class AccountBean  {
     }
 
 
+    public String getcId() {
+        return cId;
+    }
+
+    public void setcId(String cId) {
+        this.cId = cId;
+    }
 
     public Long getId() {
         return id;
@@ -88,5 +97,13 @@ public class AccountBean  {
 
     public void setDes(String des) {
         this.des = des;
+    }
+
+    public String getCId() {
+        return this.cId;
+    }
+
+    public void setCId(String cId) {
+        this.cId = cId;
     }
 }
