@@ -76,7 +76,7 @@
             android:layout_marginStart="30dp"
             android:text="-"
             android:textColor="@color/_FFFFFF"
-            android:textSize="36sp"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -88,7 +88,7 @@
             android:layout_marginStart="18dp"
             android:text="0"
             android:textColor="@color/_FFFFFF"
-            android:textSize="28sp"
+            android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_info_account"
             app:layout_constraintStart_toEndOf="@+id/tv_info_account" />
 
@@ -103,6 +103,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_info_account_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/_FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

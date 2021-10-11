@@ -6,125 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <FrameLayout
+        android:id="@+id/flTab"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/rbbTabMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_71b8fa_9577fb">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_main_top"
-                android:layout_width="match_parent"
-                android:minHeight="48dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="48dp"
-                app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed">
-
-                <TextView
-                    android:id="@+id/tv_main_top_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="66dp"
-                    android:layout_marginTop="33dp"
-                    android:text="总金额"
-                    android:textColor="@color/_FFFFFF"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_main_top_all_money"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="11dp"
-                    android:text="0"
-                    android:textColor="@color/_FFFFFF"
-                    android:textSize="30sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_main_top_all"
-                    app:layout_constraintStart_toStartOf="@+id/tv_main_top_all"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_main_top_all" />
-
-                <TextView
-                    android:id="@+id/tv_main_top_month"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="33dp"
-                    android:layout_marginEnd="66dp"
-                    android:text="本月收支"
-                    android:textColor="@color/_FFFFFF"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_main_top_month_money"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="11dp"
-                    android:text="0"
-                    android:textColor="@color/_FFFFFF"
-                    android:textSize="30sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_main_top_month"
-                    app:layout_constraintStart_toStartOf="@+id/tv_main_top_month"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_main_top_month" />
-
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="1px"
-                    android:layout_height="40dp"
-                    android:background="@color/_FFFFFF"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_main_top_all_money"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_main_top_month"
-                    app:layout_constraintStart_toEndOf="@+id/tv_main_top_all"
-                    app:layout_constraintTop_toTopOf="@+id/tv_main_top_all_money" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_main_title"
+    <com.iammert.library.readablebottombar.ReadableBottomBar
+        android:id="@+id/rbbTabMain"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/iv_main_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="15dp"
-            android:paddingTop="8dp"
-
-            android:paddingBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/icon_setting" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fb_main_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="33dp"
-        app:maxImageSize="35dp"
-        android:src="@mipmap/icon_edit"
-        app:backgroundTint="@color/_9676FD"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:rbb_tabs="@xml/folder" />
 </androidx.constraintlayout.widget.ConstraintLayout>

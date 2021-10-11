@@ -82,6 +82,7 @@ class AccountInfoActivity :BaseActivity(){
 
         mBinding.tvInfoAccount.text = name+":"
         mBinding.tvInfoNum.text = accountBean.num
+        mBinding.tvInfoAccountDes.text = accountBean.des
 
         mAdapter.data = accountInfoList
         mAdapter.notifyDataSetChanged()

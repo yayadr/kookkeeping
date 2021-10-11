@@ -11,16 +11,25 @@ android {
         applicationId "com.gs.bookkeeping"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 100
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
+            //混淆打包
             minifyEnabled false
+            //去掉不用资源
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //指定我们release包输出的文件名
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "v${variant.versionName}.apk"
+                }
+            }
         }
     }
 
@@ -28,6 +37,32 @@ android {
         viewBinding = true
     }
 
+
+
+    signingConfigs {
+        release {
+            storeFile file("../keystore/gg.keystore")
+            storePassword "gengsai123"
+            keyAlias "gsKey"
+            keyPassword "gengsai123"
+        }
+        debug {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
     greendao {
         schemaVersion 1  //我们的数据库的版本号  当数据库升级的时候可以在这里改版本
         daoPackage 'com.gs.bookkeeping.db'  //自动生成的DaoMaster、DaoSession、Dao的包名  根据自己想放的位置改变即可
@@ -52,6 +87,9 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.3.0'
     //数据库更新工具
     implementation 'io.github.yuweiguocn:GreenDaoUpgradeHelper:v2.2.1'
+    //导航
+    implementation 'com.github.iammert:ReadableBottomBar:0.2'
+
 
 
 

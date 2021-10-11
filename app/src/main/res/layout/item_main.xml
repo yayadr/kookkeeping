@@ -5,17 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_item_main_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textColor="@color/_DE4F4C"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_item_main_name"
-        app:layout_constraintEnd_toEndOf="@+id/tv_item_main_date"
-        app:layout_constraintStart_toStartOf="@+id/tv_item_main_date"
-        app:layout_constraintTop_toTopOf="@+id/tv_item_main_name" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/money" />
 
     <TextView
         android:id="@+id/tv_item_main_name"
@@ -30,24 +28,36 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_item_main_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="66dp"
+        android:text="0"
+        android:textColor="@color/_DE4F4C"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_main_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_main_name" />
+
+    <TextView
         android:id="@+id/tv_item_main_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
         android:text="0000-00"
         android:textColor="@color/_A2A3A4"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_item_main_num" />
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:layout_width="0dp"
         android:layout_height="1px"
         android:background="@color/_A2A3A4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_item_main_des"
@@ -64,20 +74,11 @@
         android:id="@+id/tv_item_main_percentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:text="0"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
         android:textColor="@color/_DE4F4C"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_item_main_date"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/money" />
 </androidx.constraintlayout.widget.ConstraintLayout>

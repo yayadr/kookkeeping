@@ -7,5 +7,5 @@ import androidx.fragment.app.Fragment
  * date : 2020/10/13
  * description : 
  */
-class BaseFragment : Fragment(){
+open class BaseFragment : Fragment(){
 }

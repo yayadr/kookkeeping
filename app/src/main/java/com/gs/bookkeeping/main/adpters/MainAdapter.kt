@@ -19,11 +19,11 @@ class MainAdapter(layoutResId: Int) : BaseQuickAdapter<AccountBean, BaseViewHold
     var all_money = 0f
 
     override fun convert(holder: BaseViewHolder, item: AccountBean) {
-        holder.setText(R.id.tv_item_main_date,item.date)
+        holder.setText(R.id.tv_item_main_date,"更新时间：${item.date}")
             .setText(R.id.tv_item_main_name,item.name)
-            .setText(R.id.tv_item_main_num,item.num)
+            .setText(R.id.tv_item_main_num,"${item.num}￥")
             .setText(R.id.tv_item_main_des,item.des)
-        if (all_money != 0f){
+        if (all_money > 0f && item.numF > 0f){
             var percentage = CalculationUtil.percentage(item.numF,all_money)
             holder.setText(R.id.tv_item_main_percentage,"$percentage%")
         }
